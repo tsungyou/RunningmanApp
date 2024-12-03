@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'episodes/episodes.dart' as episodes;
 import 'maps/maps.dart' as maps; 
 import 'dictionaries/dictionaries.dart' as dict;
-
+import 'instruction.dart';
 final Map<String, Map<String, Widget>> episodeData = {
+  'Instruction': {
+    'map': InstructionPage(),
+    'episode': InstructionPage(),
+    'dictionary': InstructionPage(),
+  },
   'Episode 700': {
     'map': maps.Episode20240211(),
     'episode': episodes.Episode20240211(),

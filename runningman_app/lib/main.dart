@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'episode_data.dart';
+import 'instruction.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,24 +31,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _mainPageIndex = 0;
+  bool _initPage = true;
   int _episodeIndex = 0;
 
   final Map<String, Map<String, Widget>> _episodes = episodeData;
   void _onBottomNavTapped(int index) {
     setState(() {
       _mainPageIndex = index;
+      _initPage = false;
     });
   }
 
   void _onSidebarTapped(String episodeTitle) {
     setState(() {
       _episodeIndex = _episodes.keys.toList().indexOf(episodeTitle);
+      _initPage = false;
     });
   }
 
   Widget _getCurrentPage() {
       final episodeTitle = _episodes.keys.elementAt(_episodeIndex);
       final episodeData = _episodes[episodeTitle]!;
+      if (_initPage) {
+        return const InstructionPage();
+      }
       switch (_mainPageIndex) {
         case 0:
           return episodeData['map']!;
@@ -55,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         case 2:
           return episodeData['dictionary']!;
         default:
-          return episodeData['map']!;
+          return const InstructionPage();
     }
   }
 
