@@ -16,13 +16,6 @@ class InstructionPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Welcome to the Running Man App!',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               const SizedBox(height: 16),
               const Text(
                 'This app helps you explore Running Man episodes with:',
@@ -45,6 +38,12 @@ class InstructionPage extends StatelessWidget {
                 icon: Icons.book,
                 title: 'Dictionary',
                 description: 'phrases/vocabs used in the episode',
+              ),
+              const SizedBox(height: 16),
+              _buildFeatureSection(
+                icon: Icons.book,
+                title: 'Grammar 使用說明書',
+                description: '在grammar，前幾章的用途比起要背誦，更像是建立概念，「有這些東西」，「可以稍微記一下」，但大多數都是學一學就會內化的知識，不需要花時間特別記憶',
               ),
               const SizedBox(height: 24),
               const Text(
