@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:runningman_app/models/table.dart';
+import 'package:runningman_app/models/description.dart';
+import 'package:runningman_app/models/sentence.dart';
+import 'package:runningman_app/models/grammar_example_sentences.dart';
+import 'package:runningman_app/models/conversation.dart';
 class InstructionPage extends StatelessWidget {
   const InstructionPage({super.key});
 
@@ -7,7 +11,7 @@ class InstructionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('How to use this app'),
+        title: const Text('APP使用說明書'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SingleChildScrollView(
@@ -17,37 +21,43 @@ class InstructionPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 16),
-              const Text(
-                'This app helps you explore Running Man episodes with:',
-                style: TextStyle(fontSize: 16),
-              ),
+              MultilineDescription(paragraphs: [
+                '此app是提供給會40以及',
+                '1.不知道怎麼自學韓文',
+                '2. 想透過런닝맨學韓文的人',
+                '3. 想沒有壓力的學習韓文',
+                '4. 平常沒有額外精力每天花時間學習的人',
+                '5. 正在學習韓文，把app當作工具書',
+                '所以設計會以自學、整合為原則，使用者可以每天花幾分鐘時間閱讀任意章節，達到作者認為學語言比起每天死背更重要的事情:',
+                '*****讓語言成為生活的一部分!*****',
+              ]),
               const SizedBox(height: 16),
               _buildFeatureSection(
                 icon: Icons.map,
                 title: 'Maps',
-                description: 'Using naver map to locate every restaurant and location.',
+                description: '以集數區分，只要有去哪些餐廳、景點都會努力記錄下來，讓大家朝聖更輕鬆!',
               ),
               const SizedBox(height: 16),
               _buildFeatureSection(
                 icon: Icons.tv,
                 title: 'Episodes',
-                description: 'Transcription and translation of the episode',
+                description: '以集數區分，主要會把字幕翻譯，建議先看完再去找那一集的影片練習!(例如: 先看完605集的episodes內容，再去看605集的影片練習閱讀特殊的字幕，一來一往很快就可以看懂了!。)',
               ),
               const SizedBox(height: 16),
               _buildFeatureSection(
                 icon: Icons.book,
                 title: 'Dictionary',
-                description: 'phrases/vocabs used in the episode',
+                description: '以集數區分，會把該集用到的單字都整理出來，並附上發音，一樣先學習，再去看影片，想辦法聽出越多單字越好!',
               ),
               const SizedBox(height: 16),
               _buildFeatureSection(
                 icon: Icons.book,
                 title: 'Grammar 使用說明書',
-                description: '在grammar，前幾章的用途比起要背誦，更像是建立概念，「有這些東西」，「可以稍微記一下」，但大多數都是學一學就會內化的知識，不需要花時間特別記憶',
+                description: '絕大部分的章節都是由「該章節會使用到的單字」=>「文法學習」=>「例句」組成，目的在學文法的同時一起學單字，不要特別花時間分別學習文法以及單字。所以請先將單字記下來，再學習文法，最後將學到的單字以及文法結合，透過例句練習。',
               ),
               const SizedBox(height: 24),
               const Text(
-                'Getting Started:',
+                '如果你是:',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -56,15 +66,36 @@ class InstructionPage extends StatelessWidget {
               const SizedBox(height: 8),
               _buildInstructionStep(
                 number: '1',
-                text: 'Open the sidebar menu by tapping the menu icon in the top left',
+                text: '有基礎者(知道名詞動詞後綴的用法)可以從任何你有興趣的地方開始。',
               ),
               _buildInstructionStep(
                 number: '2',
-                text: 'Select an episode you want to explore',
+                text: '沒有基礎，只記得40音發音的人，務必先將Grammar的前幾章節看完(包括後綴、敬語、主詞助詞的用法)，再開始閱讀其他章節。',
               ),
               _buildInstructionStep(
                 number: '3',
-                text: 'Use the bottom navigation bar to switch between Maps, Episodes, and Dictionary views',
+                text: '完全不會的人，請先去youtube看40音的教學影片，再開始使用本app。',
+              ),
+                            const SizedBox(height: 24),
+              const Text(
+                '使用步驟(除Grammar外):',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              _buildInstructionStep(
+                number: '1',
+                text: '先從該集的Dictionary開始，將單字記下來。',
+              ),
+              _buildInstructionStep(
+                number: '2',
+                text: '接下來去看那一集的Running man，試著聽出剛剛記下的單字，並且試著看懂字幕。',
+              ),
+              _buildInstructionStep(
+                number: '3',
+                text: '最後，閱讀該集的Episodes的內容，所有字幕(包括說話的字幕以及特效字幕)都會翻譯，學習該集的句子後馬上會有練習題檢驗有沒有認真學習!',
               ),
             ],
           ),

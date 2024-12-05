@@ -5,7 +5,7 @@ import 'package:runningman_app/models/sentence.dart';
 import 'package:runningman_app/models/grammar_example_sentences.dart';
 import 'package:runningman_app/models/conversation.dart';
 
-class Grammar3 extends StatelessWidget {
+class Grammar6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,17 +14,15 @@ class Grammar3 extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            MultilineDescription(paragraphs: [
+              '單字:',
+            ]),
             LatexStyleTable(tableData: '''
-            0 & 1 & 2 & 3 & 4//
-            연 & 일 & 이 & 삼 & 사 //
-            5 & 6 & 7 & 8 & 9 //
-            오 & 육 & 칠 & 팔 & 구 //
-            10 & 11 & 20 & 30 & 40 //
-            십 & 십일 & 이십 & 삼십 & 사십 //
-            50 & 60 & 70 & 80 & 90 //
-            오십 & 육십 & 칠십 & 팔십 & 구십 //
-            百 & 千 & 萬 & 十萬 & 百萬 //
-            백 & 천 & 만 & 십만 & 백만
+            韓文 & 中文 & 韓文 & 中文 //
+            날씨 & 天氣 & 좋다 & 好/喜歡 //
+            와다 & 來 & 저기 & 那邊 //
+            선생님 & 老師 & 키 & 身高 //
+            형 & 哥哥 & 동생 & 弟弟
             '''),
             MultilineDescription(paragraphs: [
               '先說結論: 雖然還是會介紹，但請不要花時間理解或記憶這兩個主詞助詞的差別，或是什麼時候該用哪個，因為',
