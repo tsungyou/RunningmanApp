@@ -24,5 +24,10 @@ final Map<String, Map<String, Widget>> episodeData = {
     'episode': episodes.Episode20220529(),
     'dictionary': dict.Episode20220529(),
   },
+  '20210321': {
+    'map': maps.Episode20210321(),
+    'episode': episodes.Episode20210321(),
+    'dictionary': dict.Episode20210321(),
+  },
 }; 
 

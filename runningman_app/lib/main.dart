@@ -62,6 +62,66 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _showSettingsDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Settings'),
+          content: const Text('Settings options will go here'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showFeedbackDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Feedback'),
+          content: const Text('Feedback form will go here'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showSubscribeDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Subscribe'),
+          content: const Text('Subscription options will go here'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Widget _getCurrentPage() {
     if (_isGrammarMode) {
       return _grammars.values.elementAt(_grammarIndex);
@@ -95,16 +155,52 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text(
-                'Episodes',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      _isGrammarMode ? '文法' : '集數',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.settings, color: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            _showSettingsDialog();
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.feedback, color: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            _showFeedbackDialog();
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.subscriptions, color: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            _showSubscribeDialog();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             if (_isGrammarMode)
