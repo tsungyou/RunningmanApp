@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:runningman_app/models/table.dart';
-import 'package:runningman_app/models/description.dart';
+import 'package:runningman_app/models/models.dart';
+
 class Grammar1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

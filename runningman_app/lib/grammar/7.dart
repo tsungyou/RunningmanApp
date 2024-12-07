@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:runningman_app/models/table.dart';
-import 'package:runningman_app/models/description.dart';
-import 'package:runningman_app/models/sentence.dart';
-import 'package:runningman_app/models/grammar_example_sentences.dart';
-import 'package:runningman_app/models/conversation.dart';
+import 'package:runningman_app/models/models.dart';
 // page 114
 class Grammar7 extends StatelessWidget {
   @override
