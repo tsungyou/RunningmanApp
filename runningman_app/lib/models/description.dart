@@ -29,6 +29,20 @@ class MultilineDescription extends StatelessWidget {
     required this.paragraphs,
   });
 
+  TextStyle _getTextStyle(String text) {
+    bool isBold = text.contains('/textbf');
+    return TextStyle(
+      fontSize: 16,
+      fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+    );
+  }
+
+  String _cleanText(String text) {
+    return text
+        .replaceAll('/textbf', '')
+        .trim();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,10 +51,15 @@ class MultilineDescription extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: paragraphs.map((paragraph) => Padding(
           padding: const EdgeInsets.symmetric(vertical: 4.0),
-          child: Text(
-            paragraph,
-            style: const TextStyle(fontSize: 16),
-            textAlign: TextAlign.justify,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                _cleanText(paragraph),
+                style: _getTextStyle(paragraph),
+                textAlign: TextAlign.justify,
+              ),
+            ],
           ),
         )).toList(),
       ),
